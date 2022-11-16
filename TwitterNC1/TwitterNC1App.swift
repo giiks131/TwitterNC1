@@ -1,9 +1,3 @@
-//
-//  TwitterNC1App.swift
-//  TwitterNC1
-//
-//  Created by Aleksandr Shapovalov on 16/11/22.
-//
 
 import SwiftUI
 
