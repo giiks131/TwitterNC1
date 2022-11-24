@@ -3,53 +3,66 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showMenu = false
     
-    let color: UIColor = UIColor(red: 29/255.0, green: 161/255.0, blue: 242/255.0, alpha: 1)
-    
-    
-    @State var animate: Bool = false
-    @State var showSplash: Bool = true
+
     
     var body: some View {
-        VStack {
-            ZStack {
-                //Content
+        ZStack(alignment: .topLeading) {
+            MainTabView()
+                .navigationBarHidden(showMenu)
+            
+            
+            if showMenu {
                 ZStack {
-                    VStack {
-                        Image(systemName: "house").resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100, height: 200)
-                        
-                        Text("Home")
-                            .font(.system(size: 42))
+                    Color(.black)
+                        .opacity(showMenu ? 0.25 : 0.0)
+                    
+                }.onTapGesture {
+                    withAnimation(.easeInOut) {
+                        showMenu = false
                     }
                 }
-                //Splash
-                ZStack {
-                    Color(color)
-                    
-                    Image("logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 85, height: 85)
-                        .colorInvert()
-                        .scaleEffect(animate ? 50 : 1)
-                        .animation(Animation.easeOut(duration: 0.4))
-                }
-                
-                .edgesIgnoringSafeArea(.all)
-                .animation(Animation.linear(duration: 0.5))
-                .opacity(showSplash ? 1 : 0)
-                
+                .ignoresSafeArea()
             }
+            
+            SideMenuView()
+                .frame(width: 300)
+                .background(Color.white)
+                .offset(x: showMenu ? 0: -300, y: 0)
+                
+                
+        }
+//        .navigationTitle(Image("blueLogo"))
+        .navigationBarTitleDisplayMode(.inline)
+        
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    withAnimation(.easeInOut) {
+                        showMenu.toggle()
+                    }
+                } label: {
+                    Image("cat1")
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .frame(width: 32, height: 32)
+                }
+
+            }
+            
+            ToolbarItem(placement: .principal) {
+                Image("blueLogo")
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Image("timeline")
+            }
+           
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
-                animate.toggle()
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                showSplash.toggle()
-            }
+            showMenu = false
         }
     }
 }

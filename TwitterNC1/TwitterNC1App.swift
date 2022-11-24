@@ -5,7 +5,9 @@ import SwiftUI
 struct TwitterNC1App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+            }
         }
     }
 }
