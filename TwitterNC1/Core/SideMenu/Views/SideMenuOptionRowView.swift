@@ -12,17 +12,24 @@ struct SideMenuOptionRowView: View {
     let viewModel: SideMenuViewModel
     
     var body: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 12) {
+            
             Image(systemName: viewModel.imageName)
                 .font(.headline).bold()
                 .foregroundColor(.gray)
+                .frame(width: 16, height: 16)
+                
             Text(viewModel.title)
                 .foregroundColor(.black)
-                .font(.subheadline).bold()
+                .font(.headline).bold()
+            
+                .padding()
             
             Spacer()
+            
+            
         }
-        .frame(height: 50)
+        .frame(height: 30)
         .padding(.horizontal)
     }
 }
