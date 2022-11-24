@@ -13,10 +13,21 @@ struct ProfileView: View {
     @Namespace var animation
     @Environment(\.presentationMode) var presentationMode
     
+//    init() {
+//        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithTransparentBackground()
+//        appearance.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
+//        UINavigationBar.appearance().standardAppearance = appearance
+//    }
+    
     var body: some View {
+        
         NavigationView {
+//            Color(.blue)
             ScrollView {
+//                Color(.blue)
                 VStack(alignment: .leading) {
+//                    Color(.blue)
                     headerView
                     actionButtons
                     userInfoDetails
@@ -35,6 +46,7 @@ struct ProfileView: View {
         
         
         .navigationBarBackButtonHidden(true)
+        
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {

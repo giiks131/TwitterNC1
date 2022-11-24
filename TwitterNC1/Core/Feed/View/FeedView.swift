@@ -16,6 +16,7 @@ struct FeedView: View {
     @State var animate: Bool = false
     @State var showSplash: Bool = true
     @State var loggedIn: Bool = false
+    @Namespace var animation
     
     @State private var showNewTweetView = false
     
@@ -26,6 +27,8 @@ struct FeedView: View {
                 //Content
                 ZStack(alignment: .bottomTrailing) {
                     ScrollView {
+                        feedSplitView
+                            .padding(.top)
                         LazyVStack {
                             ForEach(0...8, id: \.self) { _ in
                                 TweetsRowView()
@@ -106,7 +109,7 @@ struct FeedView_Previews: PreviewProvider {
 extension FeedView {
     var feedSplitView: some View {
         HStack {
-            ForEach(feedSplitView.allCases, id: \.rawValue) { item in
+            ForEach(FeedSplitViewModel.allCases, id: \.rawValue) { item in
                 VStack {
                     Text(item.title)
                         .font(.subheadline)

@@ -22,7 +22,7 @@ struct SideMenuOptionRowView: View {
             
             Spacer()
         }
-        .frame(height: 40)
+        .frame(height: 50)
         .padding(.horizontal)
     }
 }

@@ -43,7 +43,7 @@ struct ContentView: View {
                         showMenu.toggle()
                     }
                 } label: {
-                    Image("cat1")
+                    Image("tim")
                         .resizable()
                         .scaledToFill()
                         .clipShape(Circle())
