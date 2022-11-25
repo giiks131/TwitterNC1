@@ -12,7 +12,7 @@ struct SideMenuView: View {
             
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .leading, spacing: 15) {
             VStack(alignment: .leading) {
                 Image("tim")
                     .resizable()
@@ -54,7 +54,7 @@ struct SideMenuView: View {
             Spacer()
 
             
-            VStack(spacing: 20) {
+            VStack(spacing: 15) {
                 HStack {
                     Text("Creator Studio")
                         .font(.subheadline).bold()
@@ -96,7 +96,7 @@ struct SideMenuView: View {
 
             }
             .padding()
-           Spacer()
+//           Spacer()
 
 
             

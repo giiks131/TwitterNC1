@@ -80,6 +80,7 @@ struct ProfileView_Previews: PreviewProvider {
 extension ProfileView {
     
     var headerView: some View {
+        
         ZStack(alignment: .bottomLeading) {
            
             Color(.systemBlue)
@@ -87,6 +88,7 @@ extension ProfileView {
             
             
             VStack {
+                
 //                Button {
 //                    presentationMode.wrappedValue.dismiss()
 //                } label: {
