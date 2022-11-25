@@ -1,4 +1,4 @@
-# Apple Developer Academy || Solo Challenge №1
+# Apple Developer Academy || NChallenge №1
 
 Twitter Clone
 
